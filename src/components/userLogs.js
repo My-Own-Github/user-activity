@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import DataTable from 'react-data-table-component';
-import { Card, Button } from 'react-bootstrap'
 
 const columns = [
     {
@@ -49,9 +48,6 @@ const customStyles = {
     cells: {
         style: {
             textAlign: "center"
-            // height: '40px',
-            // paddingLeft: '5px', // override the cell padding for data cells
-            // paddingRight: '5px'
         },
     },
 };
@@ -72,7 +68,6 @@ class UserLogs extends React.Component {
                 <div className="mt-3 mb-3">
                     <div id="details" className="card">
                         <DataTable
-                            // sortIcon={sortIcon}
                             title="User Logs"
                             columns={columns}
                             data={this.props.userLogs? this.props.userLogs : this.userLogsLS}

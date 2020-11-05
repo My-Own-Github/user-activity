@@ -1,17 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import {FaUserAlt, FaUserAltSlash} from 'react-icons/fa'
+import { FaUserAlt, FaUserAltSlash } from 'react-icons/fa'
 import UserLogs from './userLogs'
 
 class Dashboard extends React.Component {
     constructor(props) {
         super(props);
         console.log(props);
-        this.activeUesrLS = JSON.parse(localStorage.getItem('activeUsers')) 
-        this.inactiveUesrLS = JSON.parse(localStorage.getItem('inactiveUsers')) 
-    }
-
-    componentDidMount() {
+        this.activeUesrLS = JSON.parse(localStorage.getItem('activeUsers'))
+        this.inactiveUesrLS = JSON.parse(localStorage.getItem('inactiveUsers'))
     }
 
     render() {
@@ -29,7 +26,7 @@ class Dashboard extends React.Component {
                                         <h1 className="dashboard-icon-size" style={{ "fontSize": '80px' }}><FaUserAlt /></h1>
                                     </div>
                                     <div className="col-5 col-md-5 col-lg-5">
-                                        <h2 className="mb-0  text-center font-weight-bolder" style={{ "fontSize": '40px' }}>{this.props.activieUser? this.props.activieUser : this.activeUesrLS}</h2>
+                                        <h2 className="mb-0  text-center font-weight-bolder" style={{ "fontSize": '40px' }}>{this.props.activieUser ? this.props.activieUser : this.activeUesrLS}</h2>
                                     </div>
                                     {this.props.activieUser}
                                 </div>
@@ -51,7 +48,7 @@ class Dashboard extends React.Component {
                                         <h1 className=" dashboard-icon-size" style={{ "fontSize": '80px' }}><FaUserAltSlash /></h1>
                                     </div>
                                     <div className="col-5 col-md-5 col-lg-5">
-                                        <h2 className="mb-0 text-center font-weight-bolder" style={{ "fontSize": '40px' }}>{this.props.inactivieUser? this.props.inactivieUser : this.inactiveUesrLS}</h2>
+                                        <h2 className="mb-0 text-center font-weight-bolder" style={{ "fontSize": '40px' }}>{this.props.inactivieUser ? this.props.inactivieUser : this.inactiveUesrLS}</h2>
                                     </div>
                                 </div>
                             </div>
@@ -68,9 +65,6 @@ class Dashboard extends React.Component {
                         <h6 className="text-dark mb-0">User Logs</h6>
                     </div>
                     <UserLogs />
-                    {/* <div className="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4  card-deck">
-                        <UserLogs />
-                    </div> */}
                 </div>
             </div >
         );

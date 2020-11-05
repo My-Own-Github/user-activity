@@ -43,19 +43,14 @@ Footer{
 .dropdown:hover .dropdown-menu {
     display: inline-block;
 }
-
-.register-shop-container {
-}
 .loginbgPic{
     background-image: url('../assert/sample.png');
-    // height: 100%;
-    // width: 100%;
-    // margin: auto;
-    background-position: center;
+    background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
     overflow: auto;
-    // background-size: 100% 100%;
+    background-size: 100% 100%;
+    image-rendering: -webkit-optimize-contrast;
 }
 .button {
     border-radius: 20px;
