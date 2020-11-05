@@ -20,6 +20,9 @@ const loginUser = async (json) => {
             store.dispatch(Actions.getInActiveUser(userResp?.inactiveUsers));
             store.dispatch(Actions.getUserList(userResp?.userLogs));
             localStorage.setItem("isUserAuth", JSON.stringify(true))
+            localStorage.setItem("userLogsList", JSON.stringify(userResp?.userLogs))
+            localStorage.setItem("activeUsers", JSON.stringify(userResp?.activeUsers))
+            localStorage.setItem("inactiveUsers", JSON.stringify(userResp?.inactiveUsers))
         } else {
             console.log(resp?.status)
             localStorage.setItem("isUserAuth", JSON.stringify(false))

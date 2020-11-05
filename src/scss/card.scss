@@ -1,0 +1,43 @@
+a,
+a:focus,
+a:hover,
+a:visited {
+    color: #b38200;
+    text-decoration: none;
+}
+.on-Action {
+    padding: 20px 20px 20px;
+    // border: 1px solid #fff;
+    contain: content;
+}
+.on-Action:hover {
+    border: 1px solid #fff;
+    border-color: #d3d5df;
+    box-shadow: 0 4px 7px 0 rgba(218, 220, 230, 0.6);
+    background: #fff;
+    border-radius: 0.25rem;
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 80px;
+    height: 80px;
+}
+.dashboard-card-1 {
+    background: #ffba00;
+    background: -webkit-linear-gradient(to right, #ffba00, #ff4545);
+    background: linear-gradient(to right, #ffba00, #ff4545);
+}
+.dashboard-card-2 {
+    background:  #ff4545;
+    background: -webkit-linear-gradient(to right, #ff4545,  green);
+    background: linear-gradient(to right, #ff4545,  green);
+}
+.dashboard-card-3 {
+    background:  blue;
+    background: -webkit-linear-gradient(to right, blue,  #ffba00);
+    background: linear-gradient(to right, blue,  #ffba00);
+}
+.dashboard-icon-size{
+    font-size: 3.5rem;
+}

@@ -10,7 +10,7 @@ import {
 import Login from './components/login'
 import { connect } from 'react-redux';
 import Dashboard from './components/dashboard'
-
+import HomePage from './components/home'
 
 const mapStateToProps = (state) => {
   return {
@@ -34,9 +34,9 @@ class App extends React.Component {
         <>
           <div className="main-Container">
             <Switch>
-              <Route path="/dashboard" component={Dashboard} />
+              {/* <Route path="/dashboard" component={Dashboard} /> */}
               <Route path="/login" component={Login} />
-              {/* <Route path="/home" component={Login} /> */}
+              <Route path="/home" component={HomePage} />
               <Route path="/">
                 <Redirect to={this.isUserAuth? '/home' : '/login'}/>
               </Route>

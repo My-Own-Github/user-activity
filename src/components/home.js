@@ -10,23 +10,30 @@ import Sidenav from './sideNav';
 import {
     BrowserView, MobileView
 } from "react-device-detect";
-import {store} from '../store'
+import { store } from '../store'
+import Dashboard from './dashboard'
+import UserLogs from './userLogs'
 
 class HomePage extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props)
     }
 
-    componentDidMount = () =>{
-        store.dispatch(SharedActions.setcurrentSelectedPage("myAccountPage"))
+    componentDidMount = () => {
+
     }
 
-    componentWillUnmount = () =>{
-        store.dispatch(SharedActions.setcurrentSelectedPage(""))
+    componentWillUnmount = () => {
+
     }
 
     goBack = () => {
         this.props.history.push(`/`);
+    }
+    sigout = () => {
+        store.dispatch({ type: 'CLEAR_SESSION' });    // Clear redux store from root reducer.
+        window.localStorage.clear();
+        this.props.history.push(`/login`);
     }
 
     render() {
@@ -34,25 +41,21 @@ class HomePage extends React.Component {
             <Router>
                 <BrowserView>
                     <div className="container-fluid mt-3 mb-3">
+                        <div className="text-right mr-3 mb-2">
+                            <button className="btn btn-warning" onClick={() => this.sigout()}> Signout </button>
+                        </div>
                         <div className="row">
-                            <div className="col-12 col-sm-3 col-md-3 col-lg-2 bg-white">
-                                <Sidenav params={this.props.match.params} />
+                            <div className="col-12 col-sm-3 col-md-3 col-lg-2 text-white" style={{ backgroundColor: "#935A36" }}>
+                                <Sidenav />
                             </div>
                             <div className="col-12 col-sm-9 col-md-9 col-lg-10">
                                 <div className="container">
                                     <div className="tab-content" id="v-pills-tabContent">
                                         <Switch>
-                                            <Route path='/shop/:id/account/profile' component={Profile} />
-                                            <Route path='/account/profile' component={Profile} />
-                                            <Route path='/shop/:id/orders' component={MyOrders} />
-                                            <Route path='/account/orders' component={MyOrders} />
-                                            <Route path="/account/order/:orderId/orderDetail" component={OrderDetailPage}></Route>
+                                            <Route path='/home/dashboard' component={Dashboard} />
+                                            <Route path='/home/userLogs' component={UserLogs} />
                                             <Route path="/">
-                                                {(GlobalTypes.SYSTEM_CONFIG.isSingleVendor && this.props.match.params?.id) ?
-                                                    <Redirect to={`/shop/${this.props.match.params.id}/account/profile`} />
-                                                    :
-                                                    <Redirect to={`account/profile`} />
-                                                }
+                                                <Redirect to={`/home/dashboard`} />
                                             </Route>
                                         </Switch>
                                     </div>
@@ -61,8 +64,7 @@ class HomePage extends React.Component {
                         </div>
                     </div>
                 </BrowserView>
-                <MobileView>
-                    <Header headingName={"My Account"} goBack={this.goBack} />
+                {/* <MobileView>
                     <div className="container mt-3 mb-3">
                         <div className="row">
                             <div className="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -70,7 +72,7 @@ class HomePage extends React.Component {
                             </div>
                         </div>
                     </div>
-                </MobileView>
+                </MobileView> */}
             </Router >
         )
     }

@@ -50,9 +50,9 @@ class Login extends React.Component {
         }
         let res = await Operation.loginUser(loginPayload);
         if (res.status === "success") {
-            this.props.history.push(`/dashboard`);
+            this.props.history.push(`/home`);
         } else {
-            this.setState({showErrorMsg: true})
+            this.setState({ showErrorMsg: true })
         }
     }
 
@@ -62,46 +62,43 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div className={"container register-shop-container mt-3 mb-3"}>
-                {!this.state.showRegSuccessMsg &&
-                    <div className="card  shadow-lg  bg-white rounded-lg">
-                        <div className="row justify-content-center align-items-center">
-                            <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 loginbgPic">
-                                <Card.Body className="mb-0">
-                                    <h5 className="card-title  text-center">Grow your business with</h5>
-                                </Card.Body>
-                            </div>
-                            <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                                <Card.Body className="mb-0">
-                                    <Card.Title className="text-center"><strong>Let's Get Started</strong></Card.Title>
-                                    <Form noValidate validated={this.state.formValid} onSubmit={this.handleSubmit}>
-                                        <Form.Group controlId="email">
-                                            <Form.Control type="text" placeholder="Email" value={this.state.email} onChange={this.onValueChange} name="email" required />
-                                            <Form.Control.Feedback type="invalid">
-                                                Please provide a email.
+            <div className="container mt-3 mb-3">
+                <div className="card  shadow-lg  bg-white rounded-lg">
+                    <div className="row justify-content-center">
+                        <div className="col-6 loginbgPic">
+                            <Card.Body className="mb-0">
+                                <h5 className="card-title  text-center">Grow your business with</h5>
+                            </Card.Body>
+                        </div>
+                        <div className="col-6">
+                            <Card.Body className="mb-0">
+                                <Card.Title className="text-center" style={{ color: "#935A36" }}><strong>Let's Get Started</strong></Card.Title>
+                                <Form noValidate validated={this.state.formValid} onSubmit={this.handleSubmit}>
+                                    <Form.Group controlId="email">
+                                        <Form.Control type="text" placeholder="Email" value={this.state.email} onChange={this.onValueChange} name="email" required />
+                                        <Form.Control.Feedback type="invalid">
+                                            Please provide a email.
                                         </Form.Control.Feedback>
-                                        </Form.Group>
-                                        <Form.Group controlId="password">
-                                            <Form.Control type="text" placeholder="Password" value={this.state.password} onChange={this.onValueChange} name="password" required />
-                                            <Form.Control.Feedback type="invalid">
-                                                Please provide a registered password.
+                                    </Form.Group>
+                                    <Form.Group controlId="password">
+                                        <Form.Control type="text" placeholder="Password" value={this.state.password} onChange={this.onValueChange} name="password" required />
+                                        <Form.Control.Feedback type="invalid">
+                                            Please provide a registered password.
                                         </Form.Control.Feedback>
-                                        </Form.Group>
-                                        <div className="row mt-3 justify-content-center" hidden={!this.state.showErrorMsg}>
-                                            <p className="text-danger">Incorrect Email or Password</p>
+                                    </Form.Group>
+                                    <div className="row mt-3 justify-content-center" hidden={!this.state.showErrorMsg}>
+                                        <p className="text-danger">Incorrect Email or Password</p>
+                                    </div>
+                                    <div className="row mt-3 justify-content-center">
+                                        <div className="col-6 text-center">
+                                            <Button type="submit" className="button btn btn-secondary btn-block text-white" onClick={this.goToDashboard}>SIGN IN</Button>
                                         </div>
-                                        <div className="row mt-3 justify-content-center">
-                                            <div className="col-6 text-center">
-                                                <Button type="submit" className="btn btn-secondary btn-block text-white" onClick={this.goToDashboard}>SIGN IN</Button>
-                                            </div>
-                                        </div>
-                                    </Form>
-                                </Card.Body>
-                            </div>
+                                    </div>
+                                </Form>
+                            </Card.Body>
                         </div>
                     </div>
-
-                }
+                </div>
             </div>
         )
     }

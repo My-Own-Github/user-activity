@@ -7,7 +7,11 @@ const ReducerUserActivity = (state = iState, action) => {
         case Types.IS_USER_AUTH:
             return { ...state, isUserVerified: action.payload }
         case Types.USERS_LIST:
-            return { ...state, userList: action.data }
+            return { ...state, userList: action.payload }
+        case Types.ACTIVE_USER:
+            return { ...state, activeUser: action.payload }
+        case Types.INACTIVE_USER:
+            return { ...state, inactiveUser: action.payload }
 
         default:
             return state;
